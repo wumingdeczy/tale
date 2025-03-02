@@ -18,9 +18,40 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 }
-/* 通用部分 */
+.chapter-navigation {
+    display: flex;
+    justify-content: center; /* 居中排列 */
+    gap: 1rem; /* 按钮之间的间距 */
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+}
 
-/* 通用部分 */
+.nav-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    background: rgba(0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(0, 0,0, 0.5);
+    transform: translateY(-2px);
+}
+
+/* 上一章按钮 */
+.prev-btn::before {
+    content: "← ";
+}
+
+/* 下一章按钮 */
+.next-btn::after {
+    content: " →";
+}
 .section {
     padding: 4rem 1rem;
     text-align: center;
