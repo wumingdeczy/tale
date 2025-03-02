@@ -1,0 +1,270 @@
+/* styles.css */
+/* 全局样式 */
+:root {
+    --primary-bg: #001030;        /* 主背景色 */
+    --secondary-bg: #080828;      /* 次级背景色 */
+    --accent-color: #00ffff;      /* 强调色 */
+    --text-primary: #e0e0e0;      /* 主要文字颜色 */
+    --text-secondary: #b0b0b0;    /* 次要文字颜色 */
+    --border-color: rgba(0, 255, 255, 0.2); /* 边框颜色 */
+}
+
+body {
+    font-family: 'Orbitron', sans-serif; /* 未来感字体 */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--primary-bg), #302b63, #24243e);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* 导航栏 */
+.cyber-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15, 12, 41, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cyber-nav ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 1rem;
+    list-style: none;
+    flex-wrap: nowrap; /* 确保导航项不换行 */
+}
+
+/* 导航项 */
+.cyber-nav li {
+    position: relative;
+    margin: 0 1rem; /* 调整间距以适应小屏幕 */
+    white-space: nowrap; /* 防止文字换行 */
+}
+
+.cyber-nav a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+    background: linear-gradient(90deg, transparent 50%, rgba(0, 102, 255, 0.3) 50%);
+    background-size: 200% 100%;
+}
+
+.cyber-nav a:hover {
+    color: var(--accent-color);
+    background-position: -100% 0;
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+}
+
+/* 下拉菜单 */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 30, 0.95);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1rem;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, 10px);
+    animation: menuAppear 0.3s forwards;
+}
+
+@keyframes menuAppear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 10px);
+    }
+}
+
+.dropdown-content a {
+    display: block;
+    color: var(--text-primary);
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    background: transparent;
+}
+
+.dropdown-content a:hover {
+    background: rgba(0, 102, 255, 0.3);
+    transform: translateX(10px);
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+/* 页面内容 */
+header {
+    padding: 6rem 2rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+    border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+    font-size: 3rem;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin: 0.5rem 0 0;
+}
+
+main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 小说容器 */
+.story {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.story-content {
+    font-size: 1.1rem;
+    white-space: pre-line; /* 保留换行符 */
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+/* 正文逐行效果 */
+.story-content span {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+/* 段落间距 */
+.story-content br {
+    display: block;
+    margin-bottom: 1.5rem; /* 增加段落间距 */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+/* 小标题 */
+.story-title {
+    font-size: 2rem;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* 小标题逐行效果 */
+.story-title span {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+/* 小说正文 */
+.story-content {
+    font-size: 1.1rem;
+    white-space: pre-line; /* 保留换行符 */
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+/* 正文逐行效果 */
+
+
+
+/* 注释框容器 */
+/* 注释标记 */
+.annotation-marker {
+    color: var(--accent-color);
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.annotation-marker:hover {
+    color: #00ffff; /* 悬浮时改变颜色 */
+}
+
+/* 注释框容器 */
+/* 插入框样式 */
+.insert-box {
+    background-color: #000; /* 黑色背景 */
+    border: 1px solid #00ffff; /* 细蓝色边框 */
+    color: #00ffff; /* 蓝色文字 */
+    padding: 1rem; /* 内边距 */
+    margin: 1.5rem 0; /* 外边距 */
+    border-radius: 4px; /* 圆角 */
+    font-size: 1rem;
+    line-height: 1.6;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); /* 发光效果 */
+}
+/* 页脚 */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    border-top: 1px solid var(--border-color);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+   
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .story-title {
+        font-size: 1.5rem;
+    }
+
+    .story-content {
+        font-size: 1rem;
+    }
+}
