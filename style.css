@@ -18,9 +18,190 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 }
+/* 通用部分 */
+
+/* 通用部分 */
+.section {
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+h1, h2, h3 {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+p {
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* 首页介绍 */
+.intro-section {
+    background: rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* 作品展示 */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.work-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.view-link {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.view-link:hover {
+    color: #00ffff;
+}
+
+/* 最近日常 */
+.daily-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.daily-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.daily-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* 联系方式 */
+.contact-section {
+    background: rgba(0, 0, 0, 0.6);
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.contact-list li {
+    margin: 0.5rem 0;
+}
+
+.contact-list a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-list a:hover {
+    color: #00ffff;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .works-grid, .daily-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 2rem 1rem;
+    }
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+/* 密码页面容器 */
+.password-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh; /* 占满整个视口高度 */
+    background: linear-gradient(135deg, var(--primary-bg), #302b63, #24243e);
+    color: var(--text-primary);
+    text-align: center;
+}
 
+/* 密码输入框 */
+.password-input {
+    padding: 0.8rem 1.2rem;
+    font-size: 1.1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.password-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* 提交按钮 */
+.submit-btn {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    background: rgba(0, 102, 255, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: rgba(0, 102, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* 错误提示 */
+.error-message {
+    margin-top: 1rem;
+    color: #ff4444; /* 红色错误提示 */
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.error-message.visible {
+    opacity: 1;
+}
 /* 导航栏 */
 .cyber-nav {
     position: fixed;
