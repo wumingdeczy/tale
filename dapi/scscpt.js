@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 if (userInput === correctPassword) {
                     // 密码正确，跳转到目标页面
-                    window.location.href = "https://wumingdeczy.github.io/tale/kyxx/10230426.html";
+                    window.location.href = "https://wumingdeczy.github.io/tale/dapi/fw.html";
                 } else {
                     // 密码错误，显示错误提示
                     errorMessage.classList.add('visible');
